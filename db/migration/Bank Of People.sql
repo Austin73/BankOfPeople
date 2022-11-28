@@ -3,14 +3,14 @@ CREATE TABLE "accounts" (
   "owner" varchar NOT NULL,
   "balance" bigint NOT NULL,
   "currency" varchar NOT NULL,
-  "created_at" timestamptz DEFAULT (now())
+  "created_at" timestamp DEFAULT (now())
 );
 
 CREATE TABLE "entries" (
   "id" bigserial PRIMARY KEY,
   "account_id" bigint NOT NULL,
   "amount" bigint NOT NULL,
-  "created_at" timestampz DEFAULT (now())
+  "created_at" timestamp DEFAULT (now())
 );
 
 CREATE TABLE "transers" (
@@ -18,7 +18,7 @@ CREATE TABLE "transers" (
   "from_account_id" bigint,
   "to_account_id" bigint,
   "amount" bigint NOT NULL,
-  "created_at" timestampz DEFAULT (now())
+  "created_at" timestamp DEFAULT (now())
 );
 
 CREATE INDEX ON "accounts" ("owner");
